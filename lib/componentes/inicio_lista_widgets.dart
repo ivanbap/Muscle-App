@@ -3,7 +3,7 @@ import 'package:teste/_comun/minhas_cores.dart';
 import 'package:teste/modelos/exercicio_modelo.dart';
 import 'package:teste/servicos/exercicio_servico.dart';
 
-import '../_comun/inicio_modal.dart';
+import 'adicionar_editar_exercicio_modal.dart';
 import '../telas/exercicio_tela.dart';
 
 class InicioItemLista extends StatelessWidget {
@@ -90,7 +90,7 @@ class InicioItemLista extends StatelessWidget {
                           IconButton(
                             icon: const Icon(Icons.edit),
                             onPressed: () {
-                              mostrarModalInicio(context,
+                              mostrarAdicionarEditarExercicioModal(context,
                                   exercicio: exercicioModelo);
                             },
                           ),
@@ -128,7 +128,7 @@ class InicioItemLista extends StatelessWidget {
                       SizedBox(
                         width: 150,
                         child: Text(
-                          exercicioModelo.comoFazer,
+                          "${exercicioModelo.peso} Kg",
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),

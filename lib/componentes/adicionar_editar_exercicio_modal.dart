@@ -4,9 +4,11 @@ import 'package:teste/componentes/decoracao_campo_auten.dart';
 import 'package:teste/modelos/exercicio_modelo.dart';
 import 'package:teste/modelos/sentimento_modelo.dart';
 import 'package:teste/servicos/exercicio_servico.dart';
+import 'package:teste/servicos/sentimento_servico.dart';
 import 'package:uuid/uuid.dart';
 
-mostrarModalInicio(BuildContext context, {ExercicioModelo? exercicio}) {
+mostrarAdicionarEditarExercicioModal(BuildContext context,
+    {ExercicioModelo? exercicio}) {
   showModalBottomSheet(
     context: context,
     backgroundColor: MinhasCores.azulEscuro,
@@ -37,6 +39,8 @@ class _ExercicioModalState extends State<ExercicioModal> {
   TextEditingController _nomeCtrl = TextEditingController();
   TextEditingController _treinoCtrl = TextEditingController();
   TextEditingController _anotacoesCtrl = TextEditingController();
+  TextEditingController _pesoCtrl = TextEditingController();
+  TextEditingController _repeticoesCtrl = TextEditingController();
   TextEditingController _sentindoCtrl = TextEditingController();
 
   bool isCarregando = false;
@@ -49,6 +53,9 @@ class _ExercicioModalState extends State<ExercicioModal> {
       _nomeCtrl.text = widget.exercicioModelo!.nome;
       _treinoCtrl.text = widget.exercicioModelo!.treino;
       _anotacoesCtrl.text = widget.exercicioModelo!.comoFazer;
+      _sentindoCtrl.text = widget.exercicioModelo!.comoFazer;
+      _pesoCtrl.text = widget.exercicioModelo!.peso;
+      _repeticoesCtrl.text = widget.exercicioModelo!.repeticoes;
     }
     super.initState();
   }
@@ -120,34 +127,37 @@ class _ExercicioModalState extends State<ExercicioModal> {
                     ),
                     const SizedBox(height: 16),
                     TextFormField(
-                      controller: _anotacoesCtrl,
+                      controller: _repeticoesCtrl,
                       decoration: getAuthenticationInputDecoration(
-                        "Quais anotações você tem ?",
+                        "Quantas repetições ?",
                         icon: const Icon(
                           Icons.notes_rounded,
                           color: Colors.white,
                         ),
                       ),
-                      maxLines: null,
                     ),
-                    Visibility(
-                      visible: (widget.exercicioModelo != null),
-                      child: Column(
-                        children: [
-                          const SizedBox(height: 16),
-                          TextFormField(
-                            controller: _sentindoCtrl,
-                            decoration: getAuthenticationInputDecoration(
-                              "Como você está se sentindo ?",
-                              icon: const Icon(
-                                Icons.emoji_emotions_rounded,
-                                color: Colors.white,
-                              ),
-                            ),
-                            maxLines: null,
-                          ),
-                        ],
+                    const SizedBox(height: 16),
+                    TextFormField(
+                      controller: _pesoCtrl,
+                      decoration: getAuthenticationInputDecoration(
+                        "Quantos peso ?",
+                        icon: const Icon(
+                          Icons.monitor_weight,
+                          color: Colors.white,
+                        ),
                       ),
+                    ),
+                    const SizedBox(height: 16),
+                    TextFormField(
+                      controller: _sentindoCtrl,
+                      decoration: getAuthenticationInputDecoration(
+                        "Como fazer/Dicas ?",
+                        icon: const Icon(
+                          Icons.tips_and_updates,
+                          color: Colors.white,
+                        ),
+                      ),
+                      maxLines: null,
                     ),
                   ],
                 ),
@@ -183,12 +193,16 @@ class _ExercicioModalState extends State<ExercicioModal> {
     String treino = _treinoCtrl.text;
     String anotacoes = _anotacoesCtrl.text;
     String sentindo = _sentindoCtrl.text;
+    String peso = _pesoCtrl.text;
+    String repeticoes = _repeticoesCtrl.text;
 
     ExercicioModelo exercicio = ExercicioModelo(
       id: const Uuid().v1(),
       nome: nome,
       treino: treino,
       comoFazer: anotacoes,
+      peso: peso,
+      repeticoes: repeticoes,
     );
 
     if (widget.exercicioModelo != null) {
@@ -202,8 +216,9 @@ class _ExercicioModalState extends State<ExercicioModal> {
         data: DateTime.now().toString(),
       );
 
-      _exercicioServico
-          .adicionarSentimento(exercicio.id, sentimento)
+      SentimentoServico()
+          .adicionarSentimento(
+              idExercicio: exercicio.id, sentimentoModelo: sentimento)
           .then((value) {
         setState(() {
           isCarregando = false;

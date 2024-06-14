@@ -16,16 +16,6 @@ class ExercicioServico {
         .set(exercicioModelo.toMap());
   }
 
-  Future<void> adicionarSentimento(
-      String idExercicio, SentimentoModelo sentimentoModelo) async {
-    return await _firestore
-        .collection(userId)
-        .doc(idExercicio)
-        .collection("sentimentos")
-        .doc(sentimentoModelo.id)
-        .set(sentimentoModelo.toMap());
-  }
-
   Stream<QuerySnapshot<Map<String, dynamic>>> conectarStreamExercicios(
       bool isDecrescente) {
     return _firestore

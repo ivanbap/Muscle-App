@@ -3,6 +3,8 @@ class ExercicioModelo {
   String nome;
   String treino;
   String comoFazer;
+  String peso;
+  String repeticoes;
 
   String? urlImagem;
 
@@ -11,6 +13,8 @@ class ExercicioModelo {
     required this.nome,
     required this.treino,
     required this.comoFazer,
+    required this.peso,
+    required this.repeticoes,
   });
 
   ExercicioModelo.fromMap(Map<String, dynamic> map)
@@ -18,7 +22,8 @@ class ExercicioModelo {
         nome = map["nome"],
         treino = map["treino"],
         comoFazer = map["comoFazer"],
-        urlImagem = map["ulrurlImagem"];
+        peso = map["peso"],
+        repeticoes = map["repeticoes"];
 
   Map<String, dynamic> toMap() {
     return {
@@ -26,7 +31,8 @@ class ExercicioModelo {
       "nome": nome,
       "treino": treino,
       "comoFazer": comoFazer,
-      "urlImagem": urlImagem,
+      "peso": peso,
+      "repeticoes": repeticoes,
     };
   }
 }

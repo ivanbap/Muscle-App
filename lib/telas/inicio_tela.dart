@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:teste/_comun/inicio_modal.dart';
+import 'package:teste/componentes/adicionar_editar_exercicio_modal.dart';
 import 'package:teste/_comun/minhas_cores.dart';
 import 'package:teste/componentes/inicio_lista_widgets.dart';
 import 'package:teste/servicos/autenticacao_servico.dart';
@@ -47,12 +47,6 @@ class _InicioTelaState extends State<InicioTela> {
                     : ""),
                 accountEmail: Text(widget.user.email!),
               ),
-              ListTile(
-                title: const Text("Quer saber como esse App foi feito?"),
-                leading: const Icon(Icons.menu_book_rounded),
-                dense: true,
-                onTap: () {},
-              ),
               const Divider(),
               ListTile(
                 leading: const Icon(Icons.logout),
@@ -68,7 +62,7 @@ class _InicioTelaState extends State<InicioTela> {
         floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.add),
           onPressed: () {
-            mostrarModalInicio(context);
+            mostrarAdicionarEditarExercicioModal(context);
           },
         ),
         body: Padding(
