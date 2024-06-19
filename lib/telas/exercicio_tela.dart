@@ -32,7 +32,7 @@ class ExercicioTela extends StatelessWidget {
           toolbarHeight: 72,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
-              bottom: Radius.circular(32)  ,
+              bottom: Radius.circular(32),
             ),
           ),
         ),
@@ -57,10 +57,11 @@ class ExercicioTela extends StatelessWidget {
                   children: [
                     ElevatedButton(
                       onPressed: () {},
-                      child: const Text("Enviar Foto"),
+                      child: const Text("Enviar Foto"), //dc
                     ),
                     ElevatedButton(
-                        onPressed: () {}, child: const Text("Tirar foto")),
+                        onPressed: () {},
+                        child: const Text("Tirar foto")), //fotobutton
                   ],
                 ),
               ),

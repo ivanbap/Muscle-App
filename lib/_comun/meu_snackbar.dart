@@ -12,7 +12,7 @@ mostarSnackBar(
     duration: const Duration(seconds: 4),
     action: SnackBarAction(
         label: "Ok",
-        textColor: Colors.white,
+        textColor: Colors.white, //color
         onPressed: () {
           ScaffoldMessenger.of(context).hideCurrentSnackBar();
         }),

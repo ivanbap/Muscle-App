@@ -9,7 +9,7 @@ class SentimentoModelo {
     required this.data,
   });
 
-  SentimentoModelo.fromMap(Map<String, dynamic> map)
+  SentimentoModelo.fromMap(Map<String, dynamic> map) //sentind
       : id = map["id"],
         sentindo = map["sentindo"],
         data = map["data"];

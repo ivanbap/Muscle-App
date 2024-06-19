@@ -53,8 +53,9 @@ Future<dynamic> mostrarAdicionarEditarSentimentoDialog(
 
               Navigator.pop(context);
             },
-            child:
-                Text((sentimentoModelo != null) ? "Editar dica" : "Criar dica"),
+            child: Text((sentimentoModelo != null)
+                ? "Editar dica"
+                : "Criar dica"), //dicas
           ),
         ],
       );

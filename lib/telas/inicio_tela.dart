@@ -25,7 +25,7 @@ class _InicioTelaState extends State<InicioTela> {
     return Scaffold(
         backgroundColor: Colors.blue,
         appBar: AppBar(
-          title: const Text("Meus Exercícios"),
+          title: const Text("Meus Exercícios"), //meux exercicios tel
           actions: [
             IconButton(
                 onPressed: () {
