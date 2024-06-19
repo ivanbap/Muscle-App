@@ -32,7 +32,7 @@ class ExercicioTela extends StatelessWidget {
           toolbarHeight: 72,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
-              bottom: Radius.circular(32),
+              bottom: Radius.circular(32)  ,
             ),
           ),
         ),

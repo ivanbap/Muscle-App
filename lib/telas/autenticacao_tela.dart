@@ -50,7 +50,7 @@ class _AutenticacaoTelaState extends State<AutenticacaoTela> {
                     children: [
                       Image.asset("assets/logo.png", height: 128),
                       const Text(
-                        "GymApp",
+                        "Muscle App",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 48,

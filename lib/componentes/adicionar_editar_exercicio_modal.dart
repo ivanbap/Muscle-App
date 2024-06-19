@@ -51,7 +51,7 @@ class _ExercicioModalState extends State<ExercicioModal> {
   void initState() {
     if (widget.exercicioModelo != null) {
       _nomeCtrl.text = widget.exercicioModelo!.nome;
-      _treinoCtrl.text = widget.exercicioModelo!.treino;
+      _treinoCtrl.text = widget.exercicioModelo!.treino; //a
       _anotacoesCtrl.text = widget.exercicioModelo!.comoFazer;
       _sentindoCtrl.text = widget.exercicioModelo!.comoFazer;
       _pesoCtrl.text = widget.exercicioModelo!.peso;

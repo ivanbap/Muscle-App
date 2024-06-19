@@ -21,7 +21,7 @@ class InicioItemLista extends StatelessWidget {
           MaterialPageRoute(
             builder: (context) =>
                 ExercicioTela(exercicioModelo: exercicioModelo),
-          ),
+          ), //aa
         );
       },
       child: Container(
